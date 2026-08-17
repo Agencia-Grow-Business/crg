@@ -11,7 +11,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        if (isset($_ENV['VERCEL']) || getenv('VERCEL') || getenv('VERCEL_ENV')) {
+            $this->app->useStoragePath('/tmp/laravel');
+        }
     }
 
     /**
