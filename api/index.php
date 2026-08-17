@@ -1,6 +1,11 @@
 <?php
 
-if (getenv('VERCEL') || getenv('VERCEL_ENV')) {
+$runningOnLambda = is_dir('/var/task')
+    || getenv('LAMBDA_TASK_ROOT') !== false
+    || getenv('VERCEL') !== false
+    || getenv('VERCEL_ENV') !== false;
+
+if ($runningOnLambda) {
     $tmp = '/tmp/laravel';
 
     foreach ([

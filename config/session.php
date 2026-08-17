@@ -18,7 +18,7 @@ return [
     |
     */
 
-    'driver' => env('SESSION_DRIVER', 'database'),
+    'driver' => is_dir('/var/task') ? 'cookie' : env('SESSION_DRIVER', 'database'),
 
     /*
     |--------------------------------------------------------------------------

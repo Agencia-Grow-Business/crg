@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'default' => env('CACHE_STORE', 'database'),
+    'default' => is_dir('/var/task') ? 'array' : env('CACHE_STORE', 'database'),
 
     /*
     |--------------------------------------------------------------------------
