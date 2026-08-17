@@ -18,7 +18,7 @@ return [
     |
     */
 
-    'driver' => is_dir('/var/task') ? 'cookie' : env('SESSION_DRIVER', 'database'),
+    'driver' => str_starts_with(__DIR__, '/var/task') ? 'cookie' : env('SESSION_DRIVER', 'database'),
 
     /*
     |--------------------------------------------------------------------------

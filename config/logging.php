@@ -18,7 +18,7 @@ return [
     |
     */
 
-    'default' => is_dir('/var/task') ? 'stderr' : env('LOG_CHANNEL', 'stack'),
+    'default' => str_starts_with(__DIR__, '/var/task') ? 'stderr' : env('LOG_CHANNEL', 'stack'),
 
     /*
     |--------------------------------------------------------------------------

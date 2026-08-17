@@ -1,9 +1,6 @@
 <?php
 
-$runningOnLambda = is_dir('/var/task')
-    || getenv('LAMBDA_TASK_ROOT') !== false
-    || getenv('VERCEL') !== false
-    || getenv('VERCEL_ENV') !== false;
+$runningOnLambda = str_starts_with(__DIR__, '/var/task');
 
 if ($runningOnLambda) {
     $tmp = '/tmp/laravel';

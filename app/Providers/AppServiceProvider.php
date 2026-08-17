@@ -11,7 +11,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        if (is_dir('/var/task') || getenv('LAMBDA_TASK_ROOT') || getenv('VERCEL') || getenv('VERCEL_ENV')) {
+        if (str_starts_with(base_path(), '/var/task')) {
             $this->app->useStoragePath('/tmp/laravel');
             $this->app['config']->set('view.compiled', '/tmp/laravel/framework/views');
             $this->app['config']->set('logging.default', 'stderr');
