@@ -30,6 +30,8 @@ class AppServiceProvider extends ServiceProvider
             $this->app['config']->set('session.driver', 'cookie');
             $this->app['config']->set('cache.default', 'array');
             $this->app['config']->set('queue.default', 'sync');
+            $this->app['config']->set('app.maintenance.driver', 'file');
+            $this->app['config']->set('app.maintenance.store', 'array');
         }
     }
 

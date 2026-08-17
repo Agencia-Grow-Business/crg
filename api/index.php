@@ -44,6 +44,8 @@ if ($runningServerless) {
         'MAIL_MAILER' => 'log',
         'DB_CONNECTION' => 'sqlite',
         'DB_DATABASE' => ':memory:',
+        'APP_MAINTENANCE_DRIVER' => 'file',
+        'APP_MAINTENANCE_STORE' => 'array',
     ];
 
     if ($appKey === false || $appKey === '') {
