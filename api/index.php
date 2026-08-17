@@ -26,7 +26,7 @@ if ($runningServerless) {
 
     $forced = [
         'APP_ENV' => 'production',
-        'APP_DEBUG' => 'true',
+        'APP_DEBUG' => 'false',
         'APP_URL' => 'https://'.$vercelHost,
         'APP_CONFIG_CACHE' => $tmp.'/bootstrap/cache/config.php',
         'APP_EVENTS_CACHE' => $tmp.'/bootstrap/cache/events.php',
