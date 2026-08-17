@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'default' => str_starts_with(__DIR__, '/var/task') ? 'array' : env('CACHE_STORE', 'database'),
+    'default' => env('CACHE_STORE', 'database'),
 
     /*
     |--------------------------------------------------------------------------

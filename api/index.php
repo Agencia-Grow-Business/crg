@@ -1,8 +1,9 @@
 <?php
 
-$runningOnLambda = str_starts_with(__DIR__, '/var/task');
+$storageLogs = __DIR__.'/../storage/logs';
+$runningServerless = ! is_writable($storageLogs);
 
-if ($runningOnLambda) {
+if ($runningServerless) {
     $tmp = '/tmp/laravel';
 
     foreach ([
@@ -36,8 +37,10 @@ if ($runningOnLambda) {
         'CACHE_STORE' => 'array',
         'SESSION_DRIVER' => 'cookie',
         'QUEUE_CONNECTION' => 'sync',
-        'LOG_CHANNEL' => 'stderr',
+        'LOG_CHANNEL' => 'errorlog',
         'LOG_STACK' => 'stderr',
+        'LOG_PATH' => 'php://stderr',
+        'LOG_EMERGENCY_PATH' => 'php://stderr',
         'MAIL_MAILER' => 'log',
         'DB_CONNECTION' => 'sqlite',
         'DB_DATABASE' => ':memory:',

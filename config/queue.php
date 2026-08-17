@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'default' => str_starts_with(__DIR__, '/var/task') ? 'sync' : env('QUEUE_CONNECTION', 'database'),
+    'default' => env('QUEUE_CONNECTION', 'database'),
 
     /*
     |--------------------------------------------------------------------------
